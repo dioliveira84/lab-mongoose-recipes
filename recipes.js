@@ -33,3 +33,17 @@ Recipe.insertMany( data, function(error, docs) {
     console.log(element.title)
   });
 } );
+
+Recipe.update({title: 'Rigatoni alla Genovese'},
+{duration: 100})
+.then(() => console.log('the recipe is updated'))
+.catch(err => console.log(err)); 
+
+Recipe.deleteOne({title: 'Carrot Cake'})
+.then(() => console.log('The recipe is deleted'))
+.catch(err => console.log(err));
+
+mongoose.connection.close()
+.then(() => console.log(`connection closed)`))
+.catch(err => console.log(`an error has occurred: ${err}`)
+);
